@@ -15,35 +15,6 @@ const SignUp = () => {
 
 
     return (
-        // <div className="hero min-h-screen">
-        //     <div className="hero-content flex-col">
-        //         <div className="text-center lg:text-left">
-        //             <h1 className="text-5xl font-bold">Please SignUp</h1>
-        //         </div>
-        //         <div className="card w-full max-w-lg shadow-2xl bg-gray-200">
-        //             <form className="card-body">
-        //                 <div className="form-control w-full">
-        //                     <label className="label">
-        //                         <span className="label-text">Email</span>
-        //                     </label>
-        //                     <input type="email" placeholder="email" className="input input-bordered w-full" required />
-        //                 </div>
-        //                 <div className="form-control">
-        //                     <label className="label">
-        //                         <span className="label-text">Password</span>
-        //                     </label>
-        //                     <input type="password" placeholder="password" className="input input-bordered" required />
-        //                     <label className="label">
-        //                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-        //                     </label>
-        //                 </div>
-        //                 <div className="form-control mt-6">
-        //                     <button className="btn btn-active btn-accent">Login</button>
-        //                 </div>
-        //             </form>
-        //         </div>
-        //     </div>
-        // </div>
         <div className="hero min-h-screen ">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
@@ -76,14 +47,13 @@ const SignUp = () => {
                             <input type="password" placeholder="password" className="input input-bordered" name='password' required />
                         </div>
                         <div className="form-control mt-6">
-                            <button type='submit' className="btn btn-success">SignUp</button>
+                            <button type='submit' className="btn btn-success text-xl">SignUp</button>
                         </div>
                         {/* <div onClick={handleGoogleLogin} className='flex cursor-pointer'> */}
                         <div className='flex cursor-pointer'>
                             <button type='submit' className="btn btn-primary">
                                 Login with google
                             </button>
-                            {/* <img src={google} className='w-12 h-12' alt="" /> */}
                         </div>
                         <p className='text-center text-lg mt-4 font-bold'>Already have an account? Please <Link className='text-orange-600 font-bold' to='/login'>Login</Link></p>
                     </form>

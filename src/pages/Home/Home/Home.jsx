@@ -1,9 +1,11 @@
 import React from 'react';
+import TrendingArticles from '../TrendingArticles/TrendingArticles';
+
 
 const Home = () => {
     return (
         <div>
-            <h1>This is home</h1>
+            <TrendingArticles></TrendingArticles>
         </div>
     );
 };

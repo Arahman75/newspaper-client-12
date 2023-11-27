@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provide/AuthProvider';
 
 const SignUp = () => {
-    const { name } = useContext(AuthContext);
-    console.log(name);
-    // const { createUser, handleUpdateProfile, loginWithGoogle } = useContext(AuthContext);
+    const { createUser, handleUpdateProfile, loginWithGoogle } = useContext(AuthContext);
 
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -16,37 +14,38 @@ const SignUp = () => {
         const password = form.password.value;
         console.log(name, email, photo, password);
 
-        //validation
+        validation
 
-        //     if (password.length < 6) {
-        //         toast("password should be at least 6 character.")
-        //         return;
-        //     }
+        if (password.length < 6) {
+            toast("password should be at least 6 character.")
+            return;
+        }
 
-        //     createUser(email, password)
-        //         .then(result => {
-        //             handleUpdateProfile(name, photo)
-        //                 .then(result => {
-        //                     toast('User create successfully');
-        //                     // navigate('/')
-        //                 })
+        createUser(email, password)
+            .then(result => {
+                handleUpdateProfile(name, photo)
+                    .then(result => {
+                        toast('User create successfully');
+                        // navigate('/')
+                    })
 
-        //         })
-        //         .catch(error => {
-        //             toast.error(error.message)
-        //         })
-        // }
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
 
-        // const handleGoogleLogin = () => {
-        //     loginWithGoogle()
-        //         .then(result => {
-        //             console.log(result.user);
-        //             toast('User login successfully');
-        //             // navigate('/')
-        //         })
-        //         .catch(error => {
-        //             toast.error(error.message)
-        //         })
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result.user);
+                alert('User login successfully')
+                // toast('User login successfully');
+                // navigate('/')
+            })
+            .catch(error => {
+                // toast.error(error.message)
+            })
     }
 
     return (
@@ -84,8 +83,8 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className="btn btn-success text-xl">SignUp</button>
                         </div>
-                        {/* <div onClick={handleGoogleLogin} className='flex cursor-pointer'> */}
-                        <div className='flex cursor-pointer'>
+
+                        <div onClick={handleGoogleLogin} className='flex cursor-pointer'>
                             <button type='submit' className="btn btn-primary">
                                 Login with google
                             </button>

@@ -1,9 +1,19 @@
 import React from 'react';
+import banner from '../../../assets/img/benner.jpeg'
 
-const TrendingCart = () => {
+
+const TrendingCart = ({ article }) => {
+    console.log(article)
     return (
-        <div>
-            <h2>this is a cart</h2>
+        <div className="card w-96 bg-base-100 shadow-xl">
+            <figure><img src={banner} alt="Shoes" /></figure>
+            <div className="card-body">
+                <h2 className="card-title">Shoes!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Buy Now</button>
+                </div>
+            </div>
         </div>
     );
 };

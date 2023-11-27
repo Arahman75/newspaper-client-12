@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import logo from '../../assets/img/logo.png';
 
 const Navbar = () => {
     // const { logOut, user } = useContext(AuthContext);
     const links = <>
-        <li><NavLink className='text-xl font-semibold' to='/'>Home</NavLink></li>
-        <li><NavLink className='text-xl font-semibold' to='/allArticles'>All Articles</NavLink></li>
-        <li><NavLink className='text-xl font-semibold' to='/addArticles'>Add Articles</NavLink></li>
-        <li><NavLink className='text-xl font-semibold' to='/subscription'>Subscription</NavLink></li>
-        <li><NavLink className='text-xl font-semibold' to='/dashboard'>Dashboard</NavLink></li>
-        <li><NavLink className='text-xl font-semibold' to='/signUp'>SignUp</NavLink></li>
+        <li><NavLink className='font-semibold' to='/'>Home</NavLink></li>
+        <li><NavLink className='font-semibold' to='/allArticles'>All Articles</NavLink></li>
+        <li><NavLink className='font-semibold' to='/addArticles'>Add Articles</NavLink></li>
+        <li><NavLink className='font-semibold' to='/subscription'>Subscription</NavLink></li>
+        <li><NavLink className=' font-semibold' to='/dashboard'>Dashboard</NavLink></li>
+        <li><NavLink className='font-semibold' to='/myArticles'>My Articles</NavLink></li>
+        <li><NavLink className='font-semibold' to='/premiumArticles'>Premium Articles</NavLink></li>
+        <li><NavLink className='font-semibold' to='/signUp'>SignUp</NavLink></li>
 
         {/* {user?.email &&
             <li tabIndex={0}>
@@ -41,10 +44,11 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className=''>
-                    {/* <Link to="/"> <img src={logo} className='w-24 h-24' alt="" /></Link> */}
+                <div className='flex items-center justify-center'>
+                    <Link to="/"> <img src={logo} className='w-32 h-14' alt="" /></Link>
+                    <Link to="/" className="btn btn-ghost normal-case font-bold hidden lg:block text-2xl">NewsPaper</Link>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case font-bold hidden lg:block text-xl">NewsPaper</Link>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

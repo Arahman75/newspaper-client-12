@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/img/logo.png'
 
 const Footer = () => {
     return (
@@ -7,8 +8,8 @@ const Footer = () => {
             <footer className="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
                 <aside>
-                    {/* <img src={logo} alt="logo" className='w-full h-36' /> */}
-                    <p className='text-2xl font-semibold pt-2 lg:text-start text-center'>Pet Sitting and Walking</p>
+                    <p className='text-3xl font-semibold pt-2 lg:text-start text-center'>News Paper</p>
+                    <img src={logo} alt="logo" className='w-full h-36' />
                 </aside>
                 <div className='text-center lg:text-start'>
                     <header className="footer-title">Services</header>

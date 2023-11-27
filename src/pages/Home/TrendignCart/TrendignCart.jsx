@@ -3,15 +3,24 @@ import banner from '../../../assets/img/benner.jpeg'
 
 
 const TrendingCart = ({ article }) => {
-    console.log(article)
+    const { view, date, publisher_name, publisher_img, img, description, title } = article;
+
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure><img src={banner} alt="Shoes" /></figure>
+        <div className="card bg-base-100 shadow-xl p-0">
+            <figure><img src={img} className='w-full h-56' alt="image" /></figure>
             <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                <h2 className="card-title">{title}</h2>
+                <div className='flex items-center justify-between'>
+                    <div className='flex items-center justify-center'>
+                        <img src={publisher_img} className='w-12 h-12 rounded-full mr-2' alt="" />
+                        <h2 className='text-xl font-semibold'>{publisher_name}</h2>
+                    </div>
+                    <p>{date}</p>
+                    <p>{view}</p>
+                </div>
+                <p className='text-justify'>{description}</p>
+                <div className="card-actions justify-center">
+                    <button className="btn btn-primary">Details</button>
                 </div>
             </div>
         </div>

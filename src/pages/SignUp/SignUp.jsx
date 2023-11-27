@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provide/AuthProvider';
 
 const SignUp = () => {
+    const { name } = useContext(AuthContext);
+    console.log(name);
+    // const { createUser, handleUpdateProfile, loginWithGoogle } = useContext(AuthContext);
+
     const handleSignUp = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -11,8 +16,38 @@ const SignUp = () => {
         const password = form.password.value;
         console.log(name, email, photo, password);
 
-    }
+        //validation
 
+        //     if (password.length < 6) {
+        //         toast("password should be at least 6 character.")
+        //         return;
+        //     }
+
+        //     createUser(email, password)
+        //         .then(result => {
+        //             handleUpdateProfile(name, photo)
+        //                 .then(result => {
+        //                     toast('User create successfully');
+        //                     // navigate('/')
+        //                 })
+
+        //         })
+        //         .catch(error => {
+        //             toast.error(error.message)
+        //         })
+        // }
+
+        // const handleGoogleLogin = () => {
+        //     loginWithGoogle()
+        //         .then(result => {
+        //             console.log(result.user);
+        //             toast('User login successfully');
+        //             // navigate('/')
+        //         })
+        //         .catch(error => {
+        //             toast.error(error.message)
+        //         })
+    }
 
     return (
         <div className="hero min-h-screen ">

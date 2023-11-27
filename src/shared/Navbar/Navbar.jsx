@@ -45,7 +45,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex items-center justify-center'>
-                    <Link to="/"> <img src={logo} className='w-32 h-14' alt="" /></Link>
+                    <div className='w-24 h-14'>
+                        <Link to="/"> <img src={logo} alt="" /></Link>
+                    </div>
                     <Link to="/" className="btn btn-ghost normal-case font-bold hidden lg:block text-2xl">NewsPaper</Link>
                 </div>
 

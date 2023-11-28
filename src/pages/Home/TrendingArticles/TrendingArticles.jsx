@@ -6,7 +6,7 @@ const TrendingArticles = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        fetch('/news.json')
+        fetch('http://localhost:5000/articles')
             .then(res => res.json())
             .then(data => setArticles(data)
             )
@@ -14,7 +14,7 @@ const TrendingArticles = () => {
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 my-12'>
             {
-                articles.map(article => <TrendingCart key={article.id} article={article}></TrendingCart>)
+                articles.slice(0, 6).map(article => <TrendingCart key={article.id} article={article}></TrendingCart>)
             }
         </div>
     );

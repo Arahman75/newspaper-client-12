@@ -3,6 +3,7 @@ import { AuthContext } from '../../provide/AuthProvider';
 import Swal from 'sweetalert2';
 
 const AddArticles = () => {
+    const { user } = useContext(AuthContext)
     const handleAddArticle = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -86,42 +87,40 @@ const AddArticles = () => {
                         <label className="label">
                             <span className="label-text text-xl font-medium">Publisher img</span>
                         </label>
-                        <input type="text" name='publisher_img' className="input input-bordered" required />
+                        <input type="text" name='publisher_img' placeholder='publisher_img' className="input input-bordered" required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-medium">publisher name</span>
+                            <span className="label-text text-xl font-medium">Publisher name</span>
                         </label>
-                        <input type="text" name='publisher_name' defaultValue={user?.displayName} className="input input-bordered" readOnly />
+                        <input type="text" name='publisher_name' className="input input-bordered" placeholder='publisher name' />
                     </div>
-
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-xl font-medium">Email</span>
                         </label>
                         <input type="email" defaultValue={user?.email} name="email" className="input input-bordered" readOnly />
                     </div>
-
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-medium">View</span>
+                            <span className="label-text text-xl font-medium">
+                                View</span>
                         </label>
-                        <input type="text" placeholder='view' name='price' className="input input-bordered" required />
+                        <input type="text" name='view' placeholder='view' className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-xl font-medium">Service Area</span>
+                            <span className="label-text text-xl font-medium">
+                                Date</span>
                         </label>
-                        <input type="text" name='serviceArea' placeholder='Service Area' className="input input-bordered" required />
+                        <input type="date" name='date' placeholder='date' className="input input-bordered" required />
                     </div>
-
                 </div>
                 <div className="text-center mt-4">
-                    <input className="btn btn-primary" type="submit" value="Add Service" />
+                    <input className="btn btn-primary" type="submit" value="Add Articles" />
                 </div>
             </form>
-            <ToastContainer></ToastContainer>
         </div>
     );
 };

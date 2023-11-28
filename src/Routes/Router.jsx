@@ -9,11 +9,16 @@ import Subscription from "../pages/Subscription/Subscription";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import MyArticles from "../pages/MyArticles/MyArticles";
 import PremiumArticles from "../pages/PremiumArticles/PremiumArticles";
+import MyProfile from "../pages/MyProfile/MyProfile";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -44,12 +49,18 @@ const router = createBrowserRouter([
                 element: <Subscription></Subscription>
             },
             {
+                path: '/myProfile',
+                element: <MyProfile></MyProfile>
+            },
+            {
                 path: '/premiumArticles',
                 element: <PremiumArticles></PremiumArticles>
             },
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute>
+                    <Dashboard></Dashboard>
+                </PrivateRoute>
             }
 
         ]

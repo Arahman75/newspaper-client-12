@@ -5,8 +5,8 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const { signIn, loginWithGoogle } = useContext(AuthContext);
-    // const location = useLocation();
-    // const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -25,7 +25,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                // navigate(location?.state ? location.state : "/")
+                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error.message)

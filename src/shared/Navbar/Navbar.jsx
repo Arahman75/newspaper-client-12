@@ -1,38 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/img/logo.png';
+import { AuthContext } from '../../provide/AuthProvider';
 
 const Navbar = () => {
-    // const { logOut, user } = useContext(AuthContext);
+    const { logOut, user } = useContext(AuthContext);
+    console.log(user);
     const links = <>
         <li><NavLink className='font-semibold' to='/'>Home</NavLink></li>
         <li><NavLink className='font-semibold' to='/allArticles'>All Articles</NavLink></li>
         <li><NavLink className='font-semibold' to='/addArticles'>Add Articles</NavLink></li>
         <li><NavLink className='font-semibold' to='/subscription'>Subscription</NavLink></li>
-        <li><NavLink className=' font-semibold' to='/dashboard'>Dashboard</NavLink></li>
         <li><NavLink className='font-semibold' to='/myArticles'>My Articles</NavLink></li>
         <li><NavLink className='font-semibold' to='/premiumArticles'>Premium Articles</NavLink></li>
-        <li><NavLink className='font-semibold' to='/signUp'>SignUp</NavLink></li>
 
-        {/* {user?.email &&
-            <li tabIndex={0}>
-                <details className=''>
-                    <summary className='text-xl font-semibold'>dashboard</summary>
-                    <ul className="p-2">
-                        <li><NavLink className='font-bold' to='/manage-services'>Manage Services</NavLink></li>
-                        <li><NavLink className='font-bold' to='/add-services'>Add Services</NavLink></li>
-                        <li><NavLink className='font-bold' to='/my-schedules'>My Schedules</NavLink></li>
-                    </ul>
-                </details>
-            </li> */}
-        {/* } */}
+        {
+            user?.email ? <div className="flex">
+                <li><NavLink className=' font-semibold' to='/dashboard'>Dashboard</NavLink></li>
+            </div>
+                :
+                <li><NavLink className='font-semibold' to='/signUp'>SignUp</NavLink></li>
+        }
     </>
 
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(() => { })
-    //         .catch(() => { })
-    // }
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(() => { })
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -60,11 +55,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* {
+                {
                     user?.email ? <div className="flex">
-                        <button className="btn btn-sm text-xl font-semibold btn-ghost">{user?.displayName}</button>
                         <div className="">
-                            <img className='w-10 h-10 rounded-full' src={user?.photoURL} alt="userName" />
+                            <Link to="/myProfile">
+                                <img className='w-10 h-10 rounded-full' src={user?.photoURL
+                                } alt="userName" />
+                            </Link>
                         </div>
 
                         <button onClick={handleLogOut} className="btn text-xl font-semibold btn-sm btn-ghost">Logout</button>
@@ -73,10 +70,10 @@ const Navbar = () => {
                         <Link to='/login'>
                             <button className="btn btn-sm text-xl font-semibold btn-ghost">Login</button>
                         </Link>
-                } */}
-                <Link to='/login'>
+                }
+                {/* <Link to='/login'>
                     <button className="btn btn-sm text-xl font-semibold btn-ghost">Login</button>
-                </Link>
+                </Link> */}
             </div>
         </div>
     );

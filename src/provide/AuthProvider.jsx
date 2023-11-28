@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
+
     // login with google
     const loginWithGoogle = () => {
         setLoading(true);

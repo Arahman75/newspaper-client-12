@@ -1,13 +1,53 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../provide/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const { signIn, loginWithGoogle } = useContext(AuthContext);
+    // const location = useLocation();
+    // const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
         console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "user login successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                // navigate(location?.state ? location.state : "/")
+            })
+            .catch(error => {
+                console.error(error.message)
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle()
+            .then(result => {
+                console.log(result.user);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "user login successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+            })
+            .catch(error => {
+                console.error(error.message)
+            })
     }
     return (
         <div className="hero min-h-screen">
@@ -31,8 +71,7 @@ const Login = () => {
                     <div className="form-control mt-6">
                         <button type='submit' className="btn btn-success text-xl">Login</button>
                     </div>
-                    {/* <div onClick={handleGoogleLogin} className='flex cursor-pointer'> */}
-                    <div className='flex cursor-pointer'>
+                    <div onClick={handleGoogleLogin} className='flex cursor-pointer'>
                         <button type='submit' className="btn btn-primary">
                             Login with google
                         </button>

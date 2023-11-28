@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provide/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const { createUser, handleUpdateProfile, loginWithGoogle } = useContext(AuthContext);
@@ -12,39 +13,66 @@ const SignUp = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
-        console.log(name, email, photo, password);
+        // console.log(name, email, photo, password);
 
-        validation
+        //validation
 
         if (password.length < 6) {
-            toast("password should be at least 6 character.")
+            Swal.fire({
+                title: "password at least 6 character",
+                showClass: {
+                    popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `
+                },
+                hideClass: {
+                    popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `
+                }
+            });
             return;
         }
 
         createUser(email, password)
             .then(result => {
+                console.log(result.user);
                 handleUpdateProfile(name, photo)
                     .then(result => {
-                        toast('User create successfully');
-                        // navigate('/')
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "user create successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
                     })
 
             })
             .catch(error => {
-                toast.error(error.message)
+                console.error(error.message)
             })
     }
 
     const handleGoogleLogin = () => {
         loginWithGoogle()
             .then(result => {
-                console.log(result.user);
-                alert('User login successfully')
-                // toast('User login successfully');
-                // navigate('/')
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "user login successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
             })
             .catch(error => {
-                // toast.error(error.message)
+                console.error(error.message)
             })
     }
 

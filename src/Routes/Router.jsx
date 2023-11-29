@@ -12,6 +12,7 @@ import PremiumArticles from "../pages/PremiumArticles/PremiumArticles";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import AllUser from "../pages/Dashboard/AllUser/AllUser";
 
 
 const router = createBrowserRouter([
@@ -56,16 +57,19 @@ const router = createBrowserRouter([
             {
                 path: '/premiumArticles',
                 element: <PremiumArticles></PremiumArticles>
-            },
-            {
-                path: '/dashboard',
-                element: <PrivateRoute>
-                    <Dashboard></Dashboard>
-                </PrivateRoute>
             }
-
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: '/dashboard/allUser',
+                element: <AllUser></AllUser>
+            }
+        ]
+    }
 ]);
 
 export default router;

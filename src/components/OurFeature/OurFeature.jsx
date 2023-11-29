@@ -1,43 +1,56 @@
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+// import required modules
+import { Pagination } from 'swiper/modules';
+import news1 from '../../assets/img/abela.jpg';
+import news2 from '../../assets/img/chakri.jpg';
+import news3 from '../../assets/img/bdprotidinjpg.jpg';
+import news4 from '../../assets/img/kalerkonto.jpg';
+import news5 from '../../assets/img/protomalo.jpg';
+import news6 from '../../assets/img/somoykal.jpg';
+
+
 const OurFeature = () => {
     return (
-        <div>
+        <>
             <Swiper
-                slidesPerView={4}
+                slidesPerView={3}
                 spaceBetween={30}
-                centeredSlides={true}
                 pagination={{
                     clickable: true,
                 }}
                 modules={[Pagination]}
-                className="mySwiper mb-12"
+                className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src={slide1} alt="" />
-                    <h3 className='text-4xl text-center text-white -mt-20 uppercase'>Salad</h3>
+                    <img src={news1} alt="" />
+                    <h2 className='text-2xl font-semibold text-pink-600'>The Abela</h2>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide2} alt="" />
-                    <h3 className='text-4xl text-center text-white -mt-20 uppercase'>Fizza</h3>
+                    <img src={news2} alt="" />
+                    <h2 className='text-2xl font-semibold text-pink-600'>The Chakri</h2>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide3} alt="" />
-                    <h3 className='text-4xl text-center text-white -mt-20 uppercase'>Soup</h3>
+                    <img src={news3} alt="" />
+                    <h2 className='text-2xl font-semibold text-pink-600'>Daily BD</h2>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide4} alt="" />
-                    <h3 className='text-4xl text-center text-white -mt-20 uppercase'>Desert</h3>
+                    <img src={news4} alt="" />
+                    <h2 className='text-2xl font-semibold text-pink-600'>KalerKonto</h2>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img src={news5} alt="" />
+                    <h2 className='text-2xl font-semibold text-pink-600'>Protom Alo</h2>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={slide5} alt="" />
-                    <h3 className='text-4xl text-center text-white -mt-20 uppercase'>Salad</h3>
+                    <img src={news6} alt="" />
+                    <h2 className='text-2xl font-semibold text-pink-600'>SomoKal</h2>
                 </SwiperSlide>
             </Swiper>
-        </div>
+        </>
     );
 };
 

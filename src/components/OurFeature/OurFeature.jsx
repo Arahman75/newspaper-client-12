@@ -14,7 +14,11 @@ import news6 from '../../assets/img/somoykal.jpg';
 
 const OurFeature = () => {
     return (
-        <>
+        <div className='my-12'>
+            <div className='text-center my-4'>
+                <h3 className='text-red-500 font-bold text-3xl'>Our Feature</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur <br /> adipisicing elit. Aliquam repellat debitis eos exercitationem !</p>
+            </div>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
@@ -50,7 +54,7 @@ const OurFeature = () => {
                     <h2 className='text-2xl font-semibold text-pink-600'>SomoKal</h2>
                 </SwiperSlide>
             </Swiper>
-        </>
+        </div>
     );
 };
 

@@ -1,10 +1,10 @@
 import React from 'react';
+import Banner from '../Home/Banner/Banner';
 
 const Subscription = () => {
     return (
         <div>
-            <h2>This is a Subscription page
-            </h2>
+            <Banner></Banner>
         </div>
     );
 };

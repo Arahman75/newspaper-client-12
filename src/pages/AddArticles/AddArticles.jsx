@@ -27,7 +27,7 @@ const AddArticles = () => {
             date
         }
         console.log(addArticles);
-        fetch('http://localhost:5000/articles', {
+        fetch('https://b8a12-newspaper-server-side.vercel.app/articles', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

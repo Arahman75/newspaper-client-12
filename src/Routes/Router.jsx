@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: '/allArticles',
                 element: <AllArticles></AllArticles>,
-                loader: () => fetch('http://localhost:5000/articles')
+                loader: () => fetch('https://b8a12-newspaper-server-side.vercel.app/articles')
             },
             {
                 path: '/addArticles',

@@ -11,9 +11,8 @@ import MyArticles from "../pages/MyArticles/MyArticles";
 import PremiumArticles from "../pages/PremiumArticles/PremiumArticles";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import PrivateRoute from "./PrivateRoute";
 import AllUser from "../pages/Dashboard/AllUser/AllUser";
-
+import AddPublisher from "../pages/Dashboard/AddPublisher/AddPublisher";
 
 const router = createBrowserRouter([
     {
@@ -67,7 +66,12 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allUser',
                 element: <AllUser></AllUser>
+            },
+            {
+                path: '/dashboard/addPublisher',
+                element: <AddPublisher></AddPublisher>
             }
+
         ]
     }
 ]);

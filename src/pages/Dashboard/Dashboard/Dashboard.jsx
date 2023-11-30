@@ -10,7 +10,10 @@ const Dashboard = () => {
             <div className='flex'>
                 <div className='w-64 min-h-screen bg-orange-400 rounded-md p-8'>
                     <ul className='menu'>
-                        <li><NavLink className='bg-teal-200 text-xl font-semibold' to='/dashboard/allUser'>All User</NavLink></li>
+                        <li><NavLink className='bg-teal-200 text-xl font-semibold mb-4' to='/dashboard/allUser'>All User</NavLink></li>
+                        <li><NavLink className='bg-teal-200 text-xl font-semibold mb-4' to='/allArticles'>All Articles</NavLink></li>
+                        <li><NavLink className='bg-teal-200 text-xl font-semibold mb-4' to='/dashboard/addPublisher'>Add Publisher</NavLink></li>
+
                     </ul>
                 </div>
                 <div className='flex-1'>
